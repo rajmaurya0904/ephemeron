@@ -12,6 +12,9 @@ dev = [
     "ruff>=0.6",
 ]
 
+[project.scripts]
+ephemeron = "ephemeron.cli:main"
+
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
