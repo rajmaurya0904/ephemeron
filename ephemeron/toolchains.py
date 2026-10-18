@@ -38,9 +38,7 @@ TOOLCHAINS: dict[str, Toolchain] = {
 }
 
 _VERSION_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$")
-_IMAGE_RE = re.compile(
-    r"^[a-z0-9][a-z0-9._/-]*(:[A-Za-z0-9_][A-Za-z0-9_.-]{0,127})?(@sha256:[a-f0-9]{64})?$"
-)
+_IMAGE_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/:@-]*$")
 
 
 def resolve_toolchain(spec: str) -> str:
