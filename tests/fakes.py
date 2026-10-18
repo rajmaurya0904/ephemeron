@@ -148,3 +148,12 @@ class FakeDocker:
                 }
             )
         return "\n".join(json.dumps(r) for r in rows) + ("\n" if rows else "")
+
+
+def ed25519_line(comment: str = "alice@laptop") -> str:
+    import base64
+    import struct
+
+    kind = b"ssh-ed25519"
+    blob = struct.pack(">I", len(kind)) + kind + struct.pack(">I", 32) + bytes(range(32))
+    return f"ssh-ed25519 {base64.b64encode(blob).decode()} {comment}".strip()
